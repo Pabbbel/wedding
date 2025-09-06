@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Прелоадер -->
+    <div class="preloader">
+    <div class="preloader__image-container">
+        <div class="preloader__image-animatable"></div>
+    </div>
+    <div class="preloader__overlay"></div>
+</div>
+
+<!-- Основной контейнер-подложка -->
+<div class="page-wrapper">
+    <!-- Сетка с блоками -->
+    <main class="grid-container">
+        
+        <!-- Блок 1 -->
+        <div class="grid-item item-1">
+            <p>Мы поженимся 11.10.2025</p>
+            <p>С радостью приглашаем вас!</p>
+        </div>
+
+        <!-- Блок 2 -->
+        <div class="grid-item item-2">
+            <!-- Сюда JS будет вставлять изображения -->
+        </div>
+
+        <!-- Блок 3 -->
+        <div class="grid-item item-3">
+            <div class="dress-code">
+                <div class="dress-code__text">
+                    <span class="dress-code__title">TOTAL BLACK</span>
+                    <span class="dress-code__subtitle">Дресс-код</span>
+                </div>
+                <div class="dress-code__icons">
+                    <img src="./assets/icons/dress-code-1.svg" alt="Dress code icon">
+                    <img src="./assets/icons/dress-code-2.svg" alt="Dress code icon">
+                    <img src="./assets/icons/dress-code-3.svg" alt="Dress code icon">
+                    <img src="./assets/icons/dress-code-4.svg" alt="Dress code icon">
+                    <img src="./assets/icons/dress-code-5.svg" alt="Dress code icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- ОБЕРТКА ДЛЯ ГОРИЗОНТАЛЬНОЙ ПРОКРУТКИ -->
+        <div class="horizontal-scroll-wrapper">
+            <!-- Блок 4 -->
+            <div class="grid-item item-4">
+                <div class="event-card">
+                    <div class="event-card__info">
+                        <p class="event-card__time">10:40</p>
+                        <p class="event-card__title">Роспись</p>
+                        <a href="#" class="event-card__link">
+                            <img src="./assets/icons/location.svg" alt="Location">
+                            <span>Краснодар, ул. Гагарина, 212</span>
+                            <img src="./assets/icons/arrow-right.svg" alt="Arrow">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 5 -->
+            <div class="grid-item item-5">
+                <div class="event-card">
+                    <div class="event-card__info">
+                        <p class="event-card__time">12:00—10:00</p>
+                        <p class="event-card__title">Вечеринка</p>
+                        <a href="#" class="event-card__link">
+                            <img src="./assets/icons/location.svg" alt="Location">
+                            <span>Краснодар, ул. Средняя, 47/3</span>
+                            <img src="./assets/icons/arrow-right.svg" alt="Arrow">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="grid-item item-6">
+            <a href="#" class="important-link">
+                <div class="important-link__text">
+                    <p class="important-link__title">Это важно!</p>
+                    <p class="important-link__subtitle">Заполните опрос по ссылке, чтобы мы понимали ваши предпочтения в еде и алкоголе</p>
+                </div>
+                <div class="important-link__icon">
+                    <img src="./assets/icons/arrow-right.svg" alt="Arrow">
+                </div>
+            </a>
+        </div>
+
+    </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --font-main: 'Montserrat Alternates', sans-serif;
+    
+    --color-bg: #000000;
+    --color-surface: #1E1E1E;
+    --color-card-bg: #FFFFFF;
+    --color-text-primary: #000000;
+    --color-text-secondary: #000000;
+
+    --border-radius-desktop: 40px;
+    --border-radius-mobile: 20px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+}
+
+/* --- Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-main);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Preloader Styles --- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+}
+.preloader__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.preloader__image-animatable {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0;
+    transform: scale(1);
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), 
+                width 1.2s cubic-bezier(0.65, 0, 0.35, 1), 
+                height 1.2s cubic-bezier(0.65, 0, 0.35, 1), 
+                border-radius 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.preloader__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transform-origin: bottom;
+    transform: scaleY(1);
+    transition: transform 1.5s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+/* --- Page Wrapper --- */
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: #E8E8E6;
+    border-radius: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 2s ease, height 2s ease, border-radius 2s ease;
+}
+
+.grid-item {
+    overflow: hidden;
+    background-color: var(--color-card-bg);
+}
+
+/* 
+==============================================
+DESKTOP STYLES (экраны > 900px)
+==============================================
+*/
+@media (min-width: 901px) {
+    body {
+        overflow: hidden;
+    }
+
+    .grid-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 1fr 0.4fr;
+        gap: 20px;
+        grid-template-areas:
+            "item1 wrapper wrapper"
+            "item2 wrapper wrapper"
+            "item3 item6 item6";
+    }
+    
+    .grid-item, .horizontal-scroll-wrapper {
+        opacity: 0;
+    }
+    .grid-item {
+        border-radius: var(--border-radius-desktop);
+    }
+    
+    .item-1 { 
+        grid-area: item1; 
+        transform: translateY(-30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition-delay: 0.5s;
+    }
+    .horizontal-scroll-wrapper { 
+        grid-area: wrapper; 
+        transform: translateY(-30px); 
+        display: flex; 
+        gap: 20px;
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition-delay: 0.6s;
+    }
+    .item-3 { 
+        grid-area: item3; 
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition-delay: 0.7s;
+    }
+    .item-6 { 
+        grid-area: item6; 
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition-delay: 0.8s;
+    }
+
+    .item-2 { grid-area: item2; opacity: 1; transform: none; background-color: transparent;}
+    
+    .horizontal-scroll-wrapper .grid-item {
+        opacity: 1;
+        width: 100%;
+    }
+
+    .loaded .page-wrapper {
+        width: 99vw;
+        height: 99vh;
+        border-radius: var(--border-radius-desktop);
+    }
+    
+    .loaded .grid-item, .loaded .horizontal-scroll-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .loaded .item-2 {
+        opacity: 1;
+    }
+}
+
+/* 
+==============================================
+BLOCK CONTENT STYLES
+==============================================
+*/
+.item-1 { display: flex; flex-direction: column; justify-content: center; padding: 30px; font-size: 30px; font-weight: var(--font-weight-medium); }
+.item-2 { background-size: cover; background-position: center; }
+.item-3 { padding: 30px; }
+.dress-code { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; }
+.dress-code__text { display: flex; flex-direction: column; }
+.dress-code__title { font-size: 30px; font-weight: var(--font-weight-medium); }
+.dress-code__subtitle { font-size: 20px; font-weight: var(--font-weight-regular); }
+.dress-code__icons { display: flex; gap: 15px; }
+.dress-code__icons img { width: auto; height: 60px; }
+.item-4, .item-5 { background-size: cover; background-position: center; display: flex; align-items: flex-end; }
+.item-4 { background-image: url('./assets/images/card-4-bg.jpg'); }
+.item-5 { background-image: url('./assets/images/card-5-bg.jpg'); }
+.event-card { width: 100%; }
+
+/* ИСПРАВЛЕНИЕ: Добавлено transform: translateZ(0) для решения проблемы с углами */
+.event-card__info { 
+    background-color: var(--color-card-bg); 
+    color: var(--color-text-secondary); 
+    border-radius: var(--border-radius-desktop); 
+    padding: 25px 30px; 
+    transform: translateZ(0); /* Вот это исправление */
+}
+
+.event-card__time { font-size: 40px; font-weight: var(--font-weight-medium); }
+.event-card__title { font-size: 30px; font-weight: var(--font-weight-regular); margin-bottom: 20px; }
+.event-card__link {
+        
+    padding: 30px;
+    border-radius: 20px; 
+    display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: var(--font-weight-regular); }
+
+.event-card__link img:first-child { width: 15px; }
+.event-card__link img:last-child { width: 15px; margin-left: auto; }
+.item-6 { padding: 30px; }
+.important-link { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; }
+.important-link__text { display: flex; flex-direction: column; }
+.important-link__title { font-size: 40px; font-weight: var(--font-weight-medium); margin-bottom: 10px; }
+.important-link__subtitle { font-size: 18px; font-weight: var(--font-weight-medium); max-width: 80%; }
+.important-link__icon img { width: 25px; }
+
+/* 
+==============================================
+MOBILE STYLES (экраны <= 900px)
+==============================================
+*/
+@media (max-width: 900px) {
+    body { overflow-x: hidden; }
+    
+    .page-wrapper {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        border-radius: 0 !important;
+        padding: 15px;
+    }
+    
+    .grid-container { display: flex; flex-direction: column; gap: 15px; }
+    .item-1, .item-2, .horizontal-scroll-wrapper, .item-3, .item-6 { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .item-1.is-visible, .item-2.is-visible, .horizontal-scroll-wrapper.is-visible, .item-3.is-visible, .item-6.is-visible { opacity: 1; transform: translateY(0); }
+    .item-1 { order: 1; }
+    .item-2 { order: 2; height: 60vh; }
+    .horizontal-scroll-wrapper { order: 3; }
+    .item-3 { order: 4; }
+    .item-6 { order: 5; }
+    .horizontal-scroll-wrapper { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+    .horizontal-scroll-wrapper::-webkit-scrollbar { display: none; }
+    .horizontal-scroll-wrapper .grid-item { flex: 0 0 80%; scroll-snap-align: start; }
+    .grid-item { border-radius: var(--border-radius-mobile); }
+    .item-1 { font-size: 24px; padding: 20px; }
+    
+    .event-card__info { 
+        border-radius: var(--border-radius-mobile); 
+    }
+
+    .item-3, .item-6, .event-card__info { padding: 20px; }
+    .dress-code { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .dress-code__icons img { height: 40px; }
+    .event-card__time { font-size: 32px; }
+    .event-card__title { font-size: 24px; }
+    .event-card__link { font-size: 16px; }
+    .important-link__title { font-size: 32px; }
+    .important-link__subtitle { font-size: 16px; max-width: 100%; }
+}
