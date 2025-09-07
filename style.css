@@ -35,6 +35,10 @@ body {
     align-items: center;
 }
 
+html {
+    font-size: clamp(10px, 2vw, 16px);
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -180,13 +184,13 @@ DESKTOP STYLES (экраны > 900px)
 BLOCK CONTENT STYLES
 ==============================================
 */
-.item-1 { display: flex; flex-direction: column; justify-content: center; padding: 30px; font-size: 30px; font-weight: var(--font-weight-medium); }
+.item-1 { display: flex; flex-direction: column; justify-content: center; padding: 30px; font-size: 1.875rem; font-weight: var(--font-weight-medium); }
 .item-2 { background-size: cover; background-position: center; }
 .item-3 { padding: 30px; }
 .dress-code { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; }
 .dress-code__text { display: flex; flex-direction: column; }
-.dress-code__title { font-size: 30px; font-weight: var(--font-weight-medium); }
-.dress-code__subtitle { font-size: 20px; font-weight: var(--font-weight-regular); }
+.dress-code__title { font-size: 1.875rem; font-weight: var(--font-weight-medium); }
+.dress-code__subtitle { font-size: 1.25rem; font-weight: var(--font-weight-regular); }
 .dress-code__icons { display: flex; gap: 15px; }
 .dress-code__icons img { width: auto; height: 60px; }
 .item-4, .item-5 { background-size: cover; background-position: center; display: flex; align-items: flex-end; }
@@ -203,22 +207,32 @@ BLOCK CONTENT STYLES
     transform: translateZ(0); /* Вот это исправление */
 }
 
-.event-card__time { font-size: 40px; font-weight: var(--font-weight-medium); }
-.event-card__title { font-size: 30px; font-weight: var(--font-weight-regular); margin-bottom: 20px; }
+.event-card__time { font-size: 2.5rem; font-weight: var(--font-weight-medium); }
+.event-card__title { font-size: 1.875rem; font-weight: var(--font-weight-regular); margin-bottom: 20px; }
 .event-card__link {
-        
     padding: 30px;
-    border-radius: 20px; 
-    display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: var(--font-weight-regular); }
+    border-radius: 20px;
+    display: flex; align-items: center; gap: 10px; font-size: 1.125rem; font-weight: var(--font-weight-regular); transition: background-color 0.3s, color 0.3s; }
 
 .event-card__link img:first-child { width: 15px; }
 .event-card__link img:last-child { width: 15px; margin-left: auto; }
-.item-6 { padding: 30px; }
-.important-link { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; }
+.item-6 { padding: 30px; transition: background-color 0.3s, color 0.3s; }
+.important-link { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; transition: color 0.3s; }
 .important-link__text { display: flex; flex-direction: column; }
-.important-link__title { font-size: 40px; font-weight: var(--font-weight-medium); margin-bottom: 10px; }
-.important-link__subtitle { font-size: 18px; font-weight: var(--font-weight-medium); max-width: 80%; }
+.important-link__title { font-size: 2.5rem; font-weight: var(--font-weight-medium); margin-bottom: 10px; }
+.important-link__subtitle { font-size: 1.125rem; font-weight: var(--font-weight-medium); max-width: 80%; }
 .important-link__icon img { width: 25px; }
+
+.event-card__link img:last-child,
+.important-link__icon img {
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.event-card__link:hover img:last-child,
+.item-6:hover .important-link__icon img {
+    filter: brightness(0) invert(1);
+    transform: rotate(45deg);
+}
 
 /* 
 ==============================================
@@ -226,7 +240,7 @@ MOBILE STYLES (экраны <= 900px)
 ==============================================
 */
 @media (max-width: 900px) {
-    body { overflow-x: hidden; }
+    html, body { overflow-x: hidden; }
     
     .page-wrapper {
         width: 100%;
@@ -244,11 +258,11 @@ MOBILE STYLES (экраны <= 900px)
     .horizontal-scroll-wrapper { order: 3; }
     .item-3 { order: 4; }
     .item-6 { order: 5; }
-    .horizontal-scroll-wrapper { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+    .horizontal-scroll-wrapper { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; width: 100%; }
     .horizontal-scroll-wrapper::-webkit-scrollbar { display: none; }
     .horizontal-scroll-wrapper .grid-item { flex: 0 0 80%; scroll-snap-align: start; }
     .grid-item { border-radius: var(--border-radius-mobile); }
-    .item-1 { font-size: 24px; padding: 20px; }
+    .item-1 { font-size: 1.5rem; padding: 20px; }
     
     .event-card__info { 
         border-radius: var(--border-radius-mobile); 
@@ -257,9 +271,26 @@ MOBILE STYLES (экраны <= 900px)
     .item-3, .item-6, .event-card__info { padding: 20px; }
     .dress-code { flex-direction: column; align-items: flex-start; gap: 20px; }
     .dress-code__icons img { height: 40px; }
-    .event-card__time { font-size: 32px; }
-    .event-card__title { font-size: 24px; }
-    .event-card__link { font-size: 16px; }
-    .important-link__title { font-size: 32px; }
-    .important-link__subtitle { font-size: 16px; max-width: 100%; }
+    .event-card__time { font-size: 2rem; }
+    .event-card__title { font-size: 1.5rem; }
+    .event-card__link { font-size: 1rem; }
+    .important-link__title { font-size: 2rem; }
+    .important-link__subtitle { font-size: 1rem; max-width: 100%; }
+}
+
+.event-card__link:hover,
+.item-6:hover {
+    background-color: #0E25D7;
+    color: #FFFFFF;
+}
+
+@media (max-width: 466px) {
+    .horizontal-scroll-wrapper {
+        flex-direction: column;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+    }
+    .horizontal-scroll-wrapper .grid-item {
+        flex: none;
+    }
 }
