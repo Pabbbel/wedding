@@ -218,14 +218,30 @@ BLOCK CONTENT STYLES
 .event-card__link img:last-child { width: 15px; margin-left: auto; }
 
 .item-6 { padding: 30px; transition: background-color 0.3s, color 0.3s; }
+.important-link { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; transition: color 0.3s; }
+
+
+.item-6 { padding: 30px; transition: background-color 0.3s, color 0.3s; }
 
 .item-6 { padding: 30px; }
 
 .important-link { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; transition: background-color 0.3s, color 0.3s; }
+
 .important-link__text { display: flex; flex-direction: column; }
 .important-link__title { font-size: 2.5rem; font-weight: var(--font-weight-medium); margin-bottom: 10px; }
 .important-link__subtitle { font-size: 1.125rem; font-weight: var(--font-weight-medium); max-width: 80%; }
 .important-link__icon img { width: 25px; }
+
+.event-card__link img:last-child,
+.important-link__icon img {
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.event-card__link:hover img:last-child,
+.item-6:hover .important-link__icon img {
+    filter: brightness(0) invert(1);
+    transform: rotate(45deg);
+}
 
 /* 
 ==============================================
@@ -273,13 +289,27 @@ MOBILE STYLES (экраны <= 900px)
 
 .event-card__link:hover,
 
+
 .item-6:hover {
     background-color: #0E25D7;
     color: #FFFFFF;
+}
+
+
+@media (max-width: 466px) {
+    .horizontal-scroll-wrapper {
+        flex-direction: column;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+    }
+    .horizontal-scroll-wrapper .grid-item {
+        flex: none;
+    }
 }
 
 .important-link:hover {
     background-color: #0E25D7;
     color: #FFFFFF;
 }
+
 
