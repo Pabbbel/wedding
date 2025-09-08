@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- КОНФИГУРАЦИЯ ---
     const imagesToLoad = [
-        './assets/images/gallery-1.jpg', './assets/images/gallery-2.jpg',
-        './assets/images/gallery-3.jpg', './assets/images/gallery-4.jpg',
-        './assets/images/gallery-5.jpg', './assets/images/gallery-6.jpg',
-        './assets/images/gallery-7.jpg', './assets/images/gallery-8.jpg',
+        './assets/icons/images/gallery-1.jpg', './assets/icons/images/gallery-2.jpg',
+        './assets/icons/images/gallery-3.jpg', './assets/icons/images/gallery-4.jpg',
+        './assets/icons/images/gallery-5.jpg', './assets/icons/images/gallery-6.jpg',
+        './assets/icons/images/gallery-7.jpg', './assets/icons/images/gallery-8.jpg',
     ];
     const galleryChangeInterval = 800;
 
