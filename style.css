@@ -194,8 +194,8 @@ BLOCK CONTENT STYLES
 .dress-code__icons { display: flex; gap: 15px; }
 .dress-code__icons img { width: auto; height: 60px; }
 .item-4, .item-5 { background-size: cover; background-position: center; display: flex; align-items: flex-end; }
-.item-4 { background-image: url('./assets/images/card-4-bg.jpg'); }
-.item-5 { background-image: url('./assets/images/card-5-bg.jpg'); }
+.item-4 { background-image: url('./assets/icons/images/card-4-bg.jpg'); }
+.item-5 { background-image: url('./assets/icons/images/card-5-bg.jpg'); }
 .event-card { width: 100%; }
 
 /* ИСПРАВЛЕНИЕ: Добавлено transform: translateZ(0) для решения проблемы с углами */
