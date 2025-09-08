@@ -233,7 +233,7 @@ BLOCK CONTENT STYLES
 .important-link__icon img { width: 25px; }
 
 .event-card__link img:last-child,
-.important-link__icon img {
+.__icon img {
     transition: filter 0.3s, transform 0.3s;
 }
 
@@ -305,11 +305,6 @@ MOBILE STYLES (экраны <= 900px)
     .horizontal-scroll-wrapper .grid-item {
         flex: none;
     }
-}
-
-.important-link:hover {
-    background-color: #0E25D7;
-    color: #FFFFFF;
 }
 
 
