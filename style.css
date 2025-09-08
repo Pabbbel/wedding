@@ -259,7 +259,7 @@ MOBILE STYLES (экраны <= 900px)
         padding: 15px;
     }
     
-    .grid-container { display: flex; flex-direction: column; gap: 15px; }
+    .grid-container { width: 100%; display: flex; flex-direction: column; gap: 15px; }
     .item-1, .item-2, .horizontal-scroll-wrapper, .item-3, .item-6 { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .item-1.is-visible, .item-2.is-visible, .horizontal-scroll-wrapper.is-visible, .item-3.is-visible, .item-6.is-visible { opacity: 1; transform: translateY(0); }
     .item-1 { order: 1; }
